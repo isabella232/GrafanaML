@@ -27,9 +27,9 @@ npm run tests
 ## Configure the data source
  - Create a service principal in [Azure Portal](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal)
  - Enter the service principal's client ID and secret into the datasource config.
-![](src/img/usage/config_view.png)
+![](https://raw.githubusercontent.com/Azure/GrafanaML/blob/master/src/img/usage/config_view.png)
 ## Select metrics to query
-![](src/img/usage/filtercontrol_selection.PNG)
+![](https://raw.githubusercontent.com/Azure/GrafanaML/blob/master/src/img/usage/filtercontrol_selection.PNG)
 ### Filter runs by:
 - Created By
 - Created Time
