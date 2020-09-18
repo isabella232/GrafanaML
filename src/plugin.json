@@ -1,0 +1,111 @@
+{
+  "type": "datasource",
+  "name": "Azure Machine Learning",
+  "id": "microsoft-azureml-grafana-datasource",
+  "metrics": true,
+  "info": {
+    "description": "Data source for Microsoft Azure Machine Learning metrics",
+    "author": {
+      "name": "Microsoft",
+      "url": "https://github.com/Azure/GrafanaML"
+    },
+    "keywords": ["azure", "Machine Learning", "azureML"],
+    "logos": {
+      "small": "img/favicon.png",
+      "large": "img/favicon.png"
+    },
+    "links": [
+      {
+        "name": "Github",
+        "url": "https://github.com/Azure/GrafanaML"
+      },
+      {
+        "name": "License",
+        "url": "https://github.com/Azure/GrafanaML/blob/master/LICENSE"
+      }
+    ],
+    "screenshots": [],
+    "version": "%VERSION%",
+    "updated": "%TODAY%"
+  },
+  "routes": [
+    {
+      "path": "managementclientcred",
+      "url": "https://management.azure.com",
+      "tokenAuth": {
+        "url": "https://login.microsoftonline.com/{{.JsonData.tenantId}}/oauth2/token",
+        "params": {
+          "grant_type": "client_credentials",
+          "resource": "https://management.azure.com/",
+          "client_id": "{{.JsonData.clientId}}",
+          "client_secret": "{{.SecureJsonData.clientSecret}}"
+        }
+      },
+      "headers": [{ "name": "x-ms-app", "content": "Grafana" }]
+    },
+    {
+      "path": "runhistoryclientcred",
+      "url": "https://{{ .JsonData.runHistoryUrl }}",
+      "tokenAuth": {
+        "url": "https://login.microsoftonline.com/{{.JsonData.tenantId}}/oauth2/token",
+        "params": {
+          "grant_type": "client_credentials",
+          "resource": "https://management.azure.com/",
+          "client_id": "{{.JsonData.clientId}}",
+          "client_secret": "{{.SecureJsonData.clientSecret}}"
+        }
+      },
+      "headers": [{ "name": "x-ms-app", "content": "Grafana" }]
+    },
+    {
+      "path": "apiclientcred",
+      "url": "https://{{ .JsonData.apiUrl }}",
+      "tokenAuth": {
+        "url": "https://login.microsoftonline.com/{{.JsonData.tenantId}}/oauth2/token",
+        "params": {
+          "grant_type": "client_credentials",
+          "resource": "https://management.azure.com/",
+          "client_id": "{{.JsonData.clientId}}",
+          "client_secret": "{{.SecureJsonData.clientSecret}}"
+        }
+      },
+      "headers": [{ "name": "x-ms-app", "content": "Grafana" }]
+    },
+    {
+      "path": "managementauthtoken",
+      "url": "https://management.azure.com",
+      "headers": [
+        { "name": "x-ms-app", "content": "Grafana" },
+        {
+          "name": "Authorization",
+          "content": "Bearer {{ .SecureJsonData.authToken }}"
+        }
+      ]
+    },
+    {
+      "path": "runhistoryauthtoken",
+      "url": "https://{{ .JsonData.runHistoryUrl }}",
+      "headers": [
+        { "name": "x-ms-app", "content": "Grafana" },
+        {
+          "name": "Authorization",
+          "content": "Bearer {{ .SecureJsonData.authToken }}"
+        }
+      ]
+    }, {
+      "path": "apiauthtoken",
+      "url": "https://{{ .JsonData.apiUrl }}",
+      "headers": [
+        { "name": "x-ms-app", "content": "Grafana" },
+        {
+          "name": "Authorization",
+          "content": "Bearer {{ .SecureJsonData.authToken }}"
+        }
+      ]
+    }
+  ],
+  "dependencies": {
+    "grafanaVersion": "6.5.x",
+    "plugins": []
+  }
+}

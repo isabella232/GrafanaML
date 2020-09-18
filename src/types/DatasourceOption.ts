@@ -1,0 +1,1 @@
+export type DatasourceOption = "clientcred" | "authtoken" | "runtoken";
