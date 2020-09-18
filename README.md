@@ -42,10 +42,6 @@ npm run tests
 ## Visualized selected metric(s)
 ![](src/img/usage/multirun.png)
 
-# Worklog
-- [Active Work Areas](https://microsoft-my.sharepoint.com/:w:/p/t-angeli/EeJYrzqtfVZHtiFYPl4AMscBP_PsNcggo0Hz9LvXmvDK8g?e=KrFt7W)
-- [Project Outline](https://microsoft-my.sharepoint.com/:w:/p/t-angeli/EQfBQfY_58VGnhAnFEinc5UBEKPX6DFay7HwpZVlBUTztw?e=i6evaA)
-
 # Relevant Documentation
 ## API References
 - [RunHistory API](https://master.api.azureml-test.ms/history/swagger/private/index.html)

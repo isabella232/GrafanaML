@@ -1,7 +1,7 @@
 {
-  "name": "microsoft-azureml-grafana",
+  "name": "azureml-datasource",
   "version": "0.1.0",
-  "description": "",
+  "description": "Plugin for AzureML",
   "scripts": {
     "build": "grafana-toolkit plugin:build",
     "test": "grafana-toolkit plugin:test",
