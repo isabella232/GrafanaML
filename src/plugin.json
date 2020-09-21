@@ -1,7 +1,7 @@
 {
   "type": "datasource",
   "name": "Azure Machine Learning",
-  "id": "microsoft-azureml-grafana-datasource",
+  "id": "azureml-datasource",
   "metrics": true,
   "info": {
     "description": "Data source for Microsoft Azure Machine Learning metrics",
@@ -105,7 +105,7 @@
     }
   ],
   "dependencies": {
-    "grafanaVersion": "6.5.x",
+    "grafanaDependency": ">=6",
     "plugins": []
   }
 }
